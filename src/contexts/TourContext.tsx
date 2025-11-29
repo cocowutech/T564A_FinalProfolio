@@ -6,10 +6,12 @@ interface TourContextType {
   currentFrameIndex: number;
   setCurrentFrameIndex: (index: number) => void;
   totalFrames: number;
-  startTour: () => void;
+  startTour: (initialIndex?: number) => void;
   nextFrame: () => void;
   previousFrame: () => void;
   quitTour: () => void;
+  showDetails: (index: number) => void;
+  detailRequestId: number;
 }
 
 const TourContext = createContext<TourContextType | undefined>(undefined);
@@ -25,11 +27,12 @@ export const TourProvider: React.FC<TourProviderProps> = ({
 }) => {
   const [isTourStarted, setIsTourStarted] = useState(false);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(-1);
+  const [detailRequestId, setDetailRequestId] = useState(0);
 
   // Tour control functions
-  const startTour = () => {
+  const startTour = (initialIndex = 0) => {
     setIsTourStarted(true);
-    setCurrentFrameIndex(0);
+    setCurrentFrameIndex(initialIndex);
   };
 
   const nextFrame = () => {
@@ -49,6 +52,12 @@ export const TourProvider: React.FC<TourProviderProps> = ({
     setCurrentFrameIndex(-1);
   };
 
+  const showDetails = (index: number) => {
+    setIsTourStarted(true);
+    setCurrentFrameIndex(index);
+    setDetailRequestId((prev) => prev + 1);
+  };
+
   const value = {
     isTourStarted,
     currentFrameIndex,
@@ -58,6 +67,8 @@ export const TourProvider: React.FC<TourProviderProps> = ({
     nextFrame,
     previousFrame,
     quitTour,
+    showDetails,
+    detailRequestId,
   };
 
   return <TourContext.Provider value={value}>{children}</TourContext.Provider>;

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2f1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d1f0d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <text x="400" y="120" font-family="Georgia, serif" font-size="24" fill="#7cb87c" text-anchor="middle">Kate Crawford</text>
+  <text x="400" y="160" font-family="Georgia, serif" font-size="16" fill="#888888" text-anchor="middle" font-style="italic">Atlas of AI (2021)</text>
+  <text x="60" y="260" font-family="Georgia, serif" font-size="72" fill="#7cb87c" opacity="0.3">"</text>
+  <text x="400" y="280" font-family="Georgia, serif" font-size="18" fill="#ffffff" text-anchor="middle" font-style="italic">Simply put, artificial intelligence</text>
+  <text x="400" y="320" font-family="Georgia, serif" font-size="18" fill="#ffffff" text-anchor="middle" font-style="italic">is now a player in the shaping of</text>
+  <text x="400" y="360" font-family="Georgia, serif" font-size="20" fill="#7cb87c" text-anchor="middle" font-weight="bold">knowledge, communication, and power...</text>
+  <text x="400" y="400" font-family="Georgia, serif" font-size="18" fill="#ffffff" text-anchor="middle" font-style="italic">what we are and what we can be.</text>
+  <text x="740" y="420" font-family="Georgia, serif" font-size="72" fill="#7cb87c" opacity="0.3">"</text>
+  <text x="400" y="520" font-family="Georgia, serif" font-size="14" fill="#888888" text-anchor="middle">Reading 1 | AI as Power</text>
+</svg>

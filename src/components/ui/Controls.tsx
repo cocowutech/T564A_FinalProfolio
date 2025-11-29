@@ -82,10 +82,28 @@ const Controls: React.FC<ControlsProps> = ({ style }) => {
               prev === "settings" ? "none" : "settings"
             )
           }
-          className="bg-white/10 backdrop-blur-md p-3 rounded-full hover:bg-white/20 transition-colors"
+          className="bg-white/10 backdrop-blur-md p-3 rounded-full hover:bg-white/20 transition-colors relative"
+          style={{
+            animation: "glowPulse 2s ease-in-out infinite",
+            boxShadow: "0 0 15px rgba(255, 255, 255, 0.5)",
+          }}
         >
           <Keyboard size={20} className="text-white" />
+          <span
+            className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full"
+            style={{ animation: "ping 1.5s ease-in-out infinite" }}
+          />
         </button>
+        <style>{`
+          @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
+          }
+          @keyframes ping {
+            0% { transform: scale(1); opacity: 1; }
+            75%, 100% { transform: scale(1.5); opacity: 0; }
+          }
+        `}</style>
         <button
           onClick={() =>
             setDisplaySettings((prev) =>
@@ -140,29 +158,12 @@ const Controls: React.FC<ControlsProps> = ({ style }) => {
 
           <p>
             Welcome to my interactive 3D museum! This project was created to
-            showcase my drawings in an immersive way using Three.js and React.
+            showcase my vibe coding portfolio and understanding in AI as a
+            creative partner in an immersive way using Three.js and React.
           </p>
           <br />
           <p>
-            "Metal Bench" 3D model by{" "}
-            <a
-              href="https://sketchfab.com/JanStano"
-              target="_blank"
-              className="underline"
-            >
-              JanStano
-            </a>
-          </p>
-          <br />
-          <p>
-            Developed by{" "}
-            <a
-              href="https://x.com/tymek_dev"
-              target="_blank"
-              className="underline"
-            >
-              @tymek_dev
-            </a>
+            Created by Coco Wu for EDU T564A | Fall 2025
           </p>
         </div>
       )}

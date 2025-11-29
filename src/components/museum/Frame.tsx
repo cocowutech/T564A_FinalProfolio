@@ -10,14 +10,16 @@ interface FrameProps {
   image: ImageMetadata;
   index: number;
   onFrameClick?: (index: number) => void;
+  onTextClick?: (index: number) => void;
 }
 
 useFont.preload("/fonts/Inter_28pt-SemiBold.ttf");
 
 const Frame = forwardRef<THREE.Mesh, FrameProps>(
-  ({ position, rotation, image, index, onFrameClick }, ref) => {
+  ({ position, rotation, image, index, onFrameClick, onTextClick }, ref) => {
     const [hovered, setHovered] = useState(false);
     const [linkHovered, setLinkHovered] = useState(false);
+    const [textHovered, setTextHovered] = useState(false);
 
     const [error, setError] = useState(false);
     const internalRef = useRef<THREE.Mesh>(null);
@@ -27,6 +29,7 @@ const Frame = forwardRef<THREE.Mesh, FrameProps>(
 
     useCursor(hovered);
     useCursor(linkHovered);
+    useCursor(textHovered);
 
     const texture = useTexture(image.url);
 
@@ -104,23 +107,79 @@ const Frame = forwardRef<THREE.Mesh, FrameProps>(
           </mesh>
         </mesh>
 
-        <mesh position={[width / 2 + 0.2, height / 2 - 0.2, -0.05]}>
+        {/* Frame info text */}
+        <Text
+          position={[width / 2 + 0.2, height / 2 - 0.2, -0.035]}
+          fontSize={0.06}
+          color="#eee"
+          anchorX="left"
+          anchorY="middle"
+          maxWidth={0.7}
+          textAlign="left"
+          lineHeight={1.3}
+          font="/fonts/Inter_28pt-SemiBold.ttf"
+        >
+          {`${image.title}\n${image.artist}\n${image.date}`}
+        </Text>
+
+        {/* Info button to open detail panel - positioned on the right side below title */}
+        <group
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onTextClick) {
+              onTextClick(index);
+            }
+          }}
+          onPointerOver={() => setTextHovered(true)}
+          onPointerOut={() => setTextHovered(false)}
+        >
+          {/* Invisible hitbox covering the entire info area */}
+          <mesh position={[width / 2 + 0.52, height / 2 - 0.46, -0.035]}>
+            <planeGeometry args={[0.7, 0.15]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
+          {/* Info circle */}
+          <mesh position={[width / 2 + 0.22, height / 2 - 0.42, -0.035]}>
+            <circleGeometry args={[0.018, 32]} />
+            <meshBasicMaterial color={textHovered ? "#fff" : "#777"} />
+          </mesh>
           <Text
-            position={[0, 0, 0.015]}
-            fontSize={0.06}
-            color="#eee"
+            position={[width / 2 + 0.22, height / 2 - 0.42, -0.025]}
+            fontSize={0.016}
+            color={textHovered ? "#000" : "#1d1d1d"}
+            anchorX="center"
+            anchorY="middle"
+            font="/fonts/Inter_28pt-SemiBold.ttf"
+          >
+            i
+          </Text>
+          <Text
+            position={[width / 2 + 0.26, height / 2 - 0.42, -0.035]}
+            fontSize={0.03}
+            lineHeight={1.3}
+            color={textHovered ? "#fff" : "#777"}
+            anchorX="left"
+            anchorY="middle"
+            font="/fonts/Inter_28pt-SemiBold.ttf"
+          >
+            Details
+          </Text>
+          <Text
+            position={[width / 2 + 0.22, height / 2 - 0.50, -0.035]}
+            fontSize={0.03}
+            lineHeight={1.3}
+            color={textHovered ? "#fff" : "#666"}
             anchorX="left"
             anchorY="middle"
             maxWidth={0.7}
             textAlign="left"
-            lineHeight={1.3}
             font="/fonts/Inter_28pt-SemiBold.ttf"
           >
-            {`${image.title}\n${image.artist}\n${image.date}`}
+            Click here to read more of my thoughts
           </Text>
-        </mesh>
+        </group>
 
-        {isZoomed && (
+        {isZoomed && image.link && (
           <mesh
             position={[0, -height / 2 - 0.2, -0.04]}
             onClick={() => {
@@ -135,7 +194,7 @@ const Frame = forwardRef<THREE.Mesh, FrameProps>(
                 color={linkHovered ? "#fff" : "#aaa"}
                 font="/fonts/Inter_28pt-SemiBold.ttf"
               >
-                Open in instagram →
+                Open website →
               </Text>
             </group>
             <boxGeometry args={[1, 0.2, 0.1]} />

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2a1f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1a14;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <text x="400" y="120" font-family="Georgia, serif" font-size="24" fill="#90b090" text-anchor="middle">Hubert Dreyfus</text>
+  <text x="400" y="160" font-family="Georgia, serif" font-size="16" fill="#888888" text-anchor="middle" font-style="italic">What Computers Can't Do (1972)</text>
+  <text x="80" y="280" font-family="Georgia, serif" font-size="72" fill="#90b090" opacity="0.3">"</text>
+  <text x="400" y="300" font-family="Georgia, serif" font-size="20" fill="#ffffff" text-anchor="middle" font-style="italic">The choice of problem representation</text>
+  <text x="400" y="350" font-family="Georgia, serif" font-size="20" fill="#ffffff" text-anchor="middle" font-style="italic">is the job of the human programmer</text>
+  <text x="400" y="400" font-family="Georgia, serif" font-size="22" fill="#90b090" text-anchor="middle" font-weight="bold">and is a creative act.</text>
+  <text x="720" y="420" font-family="Georgia, serif" font-size="72" fill="#90b090" opacity="0.3">"</text>
+  <text x="400" y="520" font-family="Georgia, serif" font-size="14" fill="#888888" text-anchor="middle">Reading 3 | The Human Contribution</text>
+</svg>

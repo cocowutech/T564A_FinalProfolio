@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useProgress } from "@react-three/drei";
-import { Instagram } from "lucide-react";
 
 interface LoadingScreenProps {
   setIsLoading: (isLoading: boolean) => void;
@@ -39,10 +38,25 @@ const LoadingScreen = ({
       }}
       onTransitionEnd={handleTransitionEnd}
     >
-      <div className="flex items-center mb-8">
-        <Instagram size={40} className="text-white mr-3" />
-        <h1 className="text-white text-3xl font-bold">MJKDraw</h1>
+      <div className="flex flex-col items-center mb-8">
+        {/* Avatar logo */}
+        <div className="relative mb-4 w-16 h-16 rounded-full overflow-hidden border border-white/20 shadow-lg">
+          <img
+            src="/coco.png"
+            alt="Coco logo"
+            className="w-full h-full object-cover"
+            style={{ animation: "fadePulse 1.8s ease-in-out infinite" }}
+          />
+        </div>
+        <h1 className="text-white text-3xl font-bold">CocoWu Vibe Coding</h1>
       </div>
+
+      <style>{`
+        @keyframes fadePulse {
+          0%, 100% { opacity: 0.45; transform: scale(0.98); }
+          50% { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
 
       <div className="w-64 h-2 bg-gray-800 rounded-full overflow-hidden">
         <div

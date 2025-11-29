@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram } from "lucide-react";
+import { Github } from "lucide-react";
 import Controls from "./Controls";
 import TourControls from "./TourControls";
 import { useAnimation } from "../../contexts/AnimationContext";
@@ -61,18 +61,24 @@ const UIElements: React.FC = () => {
       {/* UI controls (visible only in scene mode) */}
       {currentScreen === "scene" && (
         <>
-          <a
-            className="absolute top-0 left-0 p-4 text-white flex items-center hover:scale-105 transition-all duration-300 z-40"
-            href="https://www.instagram.com/mjkdraw/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            className="absolute top-0 left-0 p-4 text-white z-40"
             style={{
               animation: "fadeIn 1s ease-out forwards",
             }}
           >
-            <Instagram className="mr-2" />
-            <h1 className="text-xl font-bold">MJKDraw</h1>
-          </a>
+            <h1 className="text-xl font-bold">Coco Wu</h1>
+            <p className="text-sm text-gray-400">EDU T564A</p>
+            <a
+              href="https://github.com/cocowutech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 mt-2 text-sm hover:text-gray-300 transition-colors"
+            >
+              <Github className="w-4 h-4" />
+              GitHub
+            </a>
+          </div>
 
           <Controls
             style={{

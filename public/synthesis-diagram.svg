@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15102a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <text x="400" y="80" font-family="Georgia, serif" font-size="28" fill="#b39ddb" text-anchor="middle">The Synthesis</text>
+  <text x="400" y="115" font-family="Georgia, serif" font-size="16" fill="#888888" text-anchor="middle" font-style="italic">Where Making Meets Meaning</text>
+
+  <!-- Making Side -->
+  <text x="180" y="180" font-family="Arial, sans-serif" font-size="14" fill="#4fc3f7" text-anchor="middle" font-weight="bold">MAKING</text>
+  <rect x="100" y="200" width="160" height="40" rx="5" fill="none" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="180" y="225" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Smart Calendar</text>
+  <rect x="100" y="260" width="160" height="40" rx="5" fill="none" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="180" y="285" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Pixel Relay</text>
+  <rect x="100" y="320" width="160" height="40" rx="5" fill="none" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="180" y="345" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Finance Viz</text>
+
+  <!-- Reading Side -->
+  <text x="620" y="180" font-family="Arial, sans-serif" font-size="14" fill="#81c784" text-anchor="middle" font-weight="bold">READING</text>
+  <rect x="540" y="200" width="160" height="40" rx="5" fill="none" stroke="#81c784" stroke-width="2"/>
+  <text x="620" y="225" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Crawford</text>
+  <rect x="540" y="260" width="160" height="40" rx="5" fill="none" stroke="#81c784" stroke-width="2"/>
+  <text x="620" y="285" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Dreyfus</text>
+  <rect x="540" y="320" width="160" height="40" rx="5" fill="none" stroke="#81c784" stroke-width="2"/>
+  <text x="620" y="345" font-family="Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Wiener</text>
+
+  <!-- Connection Lines -->
+  <line x1="260" y1="220" x2="540" y2="220" stroke="#b39ddb" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="260" y1="280" x2="540" y2="280" stroke="#b39ddb" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="260" y1="340" x2="540" y2="340" stroke="#b39ddb" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Center Insights -->
+  <text x="400" y="220" font-family="Arial, sans-serif" font-size="10" fill="#b39ddb" text-anchor="middle">Systems embed worldviews</text>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="10" fill="#b39ddb" text-anchor="middle">Framing is human act</text>
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="10" fill="#b39ddb" text-anchor="middle">Who benefits matters</text>
+
+  <!-- Formula -->
+  <rect x="200" y="420" width="400" height="60" rx="10" fill="none" stroke="#b39ddb" stroke-width="2"/>
+  <text x="400" y="445" font-family="Georgia, serif" font-size="14" fill="#ffffff" text-anchor="middle">Human intentionality</text>
+  <text x="400" y="465" font-family="Georgia, serif" font-size="18" fill="#b39ddb" text-anchor="middle" font-weight="bold">× AI amplification = Creative partnership</text>
+
+  <text x="400" y="540" font-family="Georgia, serif" font-size="16" fill="#ffffff" text-anchor="middle" font-style="italic">"AI is a mirror. It reflects the quality of my own thinking, amplified."</text>
+</svg>

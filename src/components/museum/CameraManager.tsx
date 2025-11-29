@@ -126,11 +126,21 @@ const CameraManager: React.FC<CameraManagerProps> = ({
 
   useEffect(() => {
     if (currentFrameIndex >= 0 && currentFrameIndex < imagesCount) {
-      zoomToFrame(currentFrameIndex);
+      // Try to zoom, with retry if frame ref isn't ready yet
+      const attemptZoom = (retries = 5) => {
+        const mesh = frameRefs.current[currentFrameIndex];
+        if (mesh) {
+          zoomToFrame(currentFrameIndex);
+        } else if (retries > 0) {
+          // Retry after a short delay if ref isn't ready
+          setTimeout(() => attemptZoom(retries - 1), 100);
+        }
+      };
+      attemptZoom();
     } else if (currentFrameIndex === -1) {
       resetCamera();
     }
-  }, [currentFrameIndex, imagesCount, zoomToFrame, resetCamera]);
+  }, [currentFrameIndex, imagesCount, zoomToFrame, resetCamera, frameRefs]);
 
   return (
     <>

@@ -11,17 +11,22 @@ import { CameraManager } from "./museum/CameraManager";
 import SpotlightGroup from "./museum/SpotlightGroup";
 import { useTour } from "../contexts/TourContext";
 import CeilingLight from "./museum/CeilingLight";
-import { drawingImages } from "../config/imagesConfig";
+import { portfolioItems } from "../config/portfolioConfig";
 
 interface MuseumProps {
   images: ImageMetadata[];
 }
 
-const images = drawingImages;
+const images = portfolioItems;
 
 const Museum: React.FC<MuseumProps> = () => {
-  const { currentFrameIndex, setCurrentFrameIndex, startTour, quitTour } =
-    useTour();
+  const {
+    currentFrameIndex,
+    setCurrentFrameIndex,
+    startTour,
+    quitTour,
+    showDetails,
+  } = useTour();
   const frameRefs = useRef<(THREE.Mesh | null)[]>([]);
 
   React.useEffect(() => {
@@ -67,15 +72,14 @@ const Museum: React.FC<MuseumProps> = () => {
                     frameRefs.current[index] = el;
                   }}
                   onFrameClick={(idx) => {
-                    if (setCurrentFrameIndex) {
-                      if (idx === currentFrameIndex) {
-                        quitTour();
-                        setCurrentFrameIndex(-1);
-                      } else {
-                        startTour();
-                        setCurrentFrameIndex(idx);
-                      }
+                    if (idx === currentFrameIndex) {
+                      quitTour();
+                    } else {
+                      startTour(idx);
                     }
+                  }}
+                  onTextClick={(idx) => {
+                    showDetails(idx);
                   }}
                 />
               </React.Fragment>
