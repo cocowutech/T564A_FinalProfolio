@@ -1,5 +1,5 @@
 import React from "react";
-import { Github } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import Controls from "./Controls";
 import TourControls from "./TourControls";
 import { useAnimation } from "../../contexts/AnimationContext";
@@ -70,13 +70,13 @@ const UIElements: React.FC = () => {
             <h1 className="text-xl font-bold">Coco Wu</h1>
             <p className="text-sm text-gray-400">EDU T564A</p>
             <a
-              href="https://github.com/cocowutech"
+              href="https://docs.google.com/presentation/d/1w0BYf4W40y_YLMA4hQmUxj_SxzJ9B-6O_ap5yy8edYo/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 mt-2 text-sm hover:text-gray-300 transition-colors"
             >
-              <Github className="w-4 h-4" />
-              GitHub
+              <BookOpen className="w-4 h-4" />
+              Design Journal
             </a>
           </div>
 
